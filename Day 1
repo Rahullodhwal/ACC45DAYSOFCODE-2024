@@ -1,0 +1,35 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Using function to check
+string isEasyToPronounce(const string& s) {
+    const string vowels = "aeiou";
+    int consecutiveConsonants = 0;
+
+    for (char c : s) {
+        if (vowels.find(c) != string::npos) {
+            consecutiveConsonants = 0; 
+        } else {
+            consecutiveConsonants++; 
+            if (consecutiveConsonants >= 4) {
+                return "NO";//Hard
+            }
+        }
+    }
+    return "YES"; //Easy
+}
+
+int main() {
+    int T;
+    cin >> T; // Number of test cases
+    while (T--) {
+        int N;
+        cin >> N; // Length of the string
+        string S;
+        cin >> S; 
+        cout << isEasyToPronounce(S) << endl; 
+    }
+    return 0;
+}
