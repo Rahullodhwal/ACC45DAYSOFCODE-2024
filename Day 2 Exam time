@@ -1,0 +1,55 @@
+#include <iostream>
+
+struct Scores {
+    int dsa;
+    int toc;
+    int dm;
+};
+
+std::string determineRank(Scores dragon, Scores sloth) {
+    
+    int dragonTotal = dragon.dsa + dragon.toc + dragon.dm;
+    int slothTotal = sloth.dsa + sloth.toc + sloth.dm;
+
+    // Comparing scores
+    if (dragonTotal > slothTotal) {
+        return "Dragon";
+    } else if (slothTotal > dragonTotal) {
+        return "Sloth";
+    }
+
+    
+    if (dragon.dsa > sloth.dsa) {
+        return "Dragon";
+    } else if (sloth.dsa > dragon.dsa) {
+        return "Sloth";
+    }
+
+    
+    if (dragon.toc > sloth.toc) {
+        return "Dragon";
+    } else if (sloth.toc > dragon.toc) {
+        return "Sloth";
+    }
+
+    // If tied
+    return "Same Rank";
+}
+
+int main() {
+    Scores dragon, sloth;
+
+    
+    std::cout << "Enter scores for Dragon (DSA TOC DM): ";
+    std::cin >> dragon.dsa >> dragon.toc >> dragon.dm;
+
+    
+    std::cout << "Enter scores for Sloth (DSA TOC DM): ";
+    std::cin >> sloth.dsa >> sloth.toc >> sloth.dm;
+
+    
+    std::string result = determineRank(dragon, sloth);
+    std::cout << "Result: " << result << std::endl;
+
+    return 0;
+}
