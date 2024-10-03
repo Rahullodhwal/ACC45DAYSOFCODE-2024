@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    
+    while (T--) {
+        int X, Y;
+        cin >> X >> Y;
+        
+        // Calculate points for solving A first then B
+        int pointsA_first = max(0, 500 - 2 * X) + max(0, 1000 - 4 * (X + Y));
+        
+        // Calculate points for solving B first then A
+        int pointsB_first = max(0, 1000 - 4 * Y) + max(0, 500 - 2 * (X + Y));
+        
+        // Find the maximum of the two orders
+        int maxPoints = max(pointsA_first, pointsB_first);
+        
+        cout << maxPoints << endl;
+    }
+    
+    return 0;
+}
