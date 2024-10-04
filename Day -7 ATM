@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T; 
+    while (T--) {
+        int N, K;
+        cin >> N >> K; 
+        
+        vector<int> withdrawals(N);
+        for (int i = 0; i < N; ++i) {
+            cin >> withdrawals[i]; 
+        }
+        
+        string result;
+        for (int i = 0; i < N; ++i) {
+            if (K >= withdrawals[i]) {
+                K -= withdrawals[i]; // Deduct the amount from K
+                result += '1'; // Successful withdrawal
+            } else {
+                result += '0'; // Failed withdrawal
+            }
+        }
+        
+        cout << result << endl; 
+    }
+    return 0;
+}
