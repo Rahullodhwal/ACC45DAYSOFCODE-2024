@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	// your code goes here
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n];
+        map<int, int> freq;
+		for(int i=0;i<n;i++){
+			int a;
+			cin >> a;
+			freq[a]++;
+		}
+		int m=0;
+		int ans;
+		vector<int> values;
+		for(auto i:freq){
+			if(i.second>=m){
+				m=i.second;
+				values.push_back(m);
+				ans=i.first;
+			}
+		}
+		sort(values.rbegin(),values.rend());
+		if(values[0]==values[1]){
+			cout << "CONFUSED\n";
+		}
+		else cout << ans <<"\n";
+		
+    }
+    return 0;
+}
