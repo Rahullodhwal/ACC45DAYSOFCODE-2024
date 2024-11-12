@@ -1,0 +1,13 @@
+for i in range(int(input())):
+    n, x, y = map(int,input().split())
+    # adding rows and  columns
+    res= 2*n - 2
+    #adding top left diagonal
+    res+= min(x,y)-1
+    #adding top right diagonal
+    res+= min(x-1,n-y)
+    #adding bottom left diagonal
+    res+=min(n-x,y-1)
+    #adding bottom right diagonal
+    res+=min(n-x,n-y)
+    print(res)
