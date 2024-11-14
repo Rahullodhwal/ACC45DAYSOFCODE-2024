@@ -1,0 +1,6 @@
+for _ in range(int(input())):
+    n = int(input())
+    # even = n//2
+    # odd = n - even
+    # print(int(odd*even*2))
+    print((n*n )//2)
