@@ -1,0 +1,37 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    // Read the number of test cases
+    int t;
+    cin >> t;
+
+    // Process each test case
+    while (t--) {
+        // Read the length of the string and the string itself
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+
+        // Swap adjacent characters in the string
+        for (int i = 0; i < n - 1; i += 2) {
+            swap(s[i], s[i + 1]);
+        }
+
+        // Modify each character in the string according to the given transformation
+        for (int i = 0; i < n; i++) {
+            // Get the ASCII value of the character
+            int asciiValue = s[i];
+            
+            // Transform the character by calculating the new character
+            s[i] = 122 - (asciiValue % 97); // This flips it relative to 'a' and 'z'
+        }
+
+        // Output the transformed string for the current test case
+        cout << s << endl;
+    }
+
+    return 0;
+}
