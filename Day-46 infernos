@@ -1,0 +1,12 @@
+# cook your dish here
+from math import ceil
+for i in range(int(input())):
+    n,x=map(int,input().split())
+    h=list(map(int,input().split()))
+
+    m1=max(h)
+    m2=0
+    for i in h:
+        m2+=ceil(i/x)
+        
+    print(min(m1,m2))
